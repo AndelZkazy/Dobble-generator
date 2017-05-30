@@ -1,0 +1,12 @@
+.canvas {
+   border: 1px solid black;
+   width: 330px;
+   height: 330px;
+   float: left;
+   margin: 5px;
+}
+
+.input {
+ float: left;
+ margin: 20px;
+}
