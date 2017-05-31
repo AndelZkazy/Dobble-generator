@@ -5,10 +5,15 @@ function getRandomInt(min, max) {
 }
 
 function generateCanvas(canvas, data, style, reverse) {
-	var w = 330,
-		h = 330;
+	var w = 325,
+		h = 325;
 
-	 style == 1 ? $(canvas).addClass("canvas_square") : $(canvas).addClass("canvas_circle");
+		if(style == 1) {
+			$(canvas).addClass("canvas_square");
+			w = 330;
+			h = 325;
+		} else
+		 	$(canvas).addClass("canvas_circle");
 
 	var canvasLocal = d3.select(canvas)
 		.append("svg:svg")
