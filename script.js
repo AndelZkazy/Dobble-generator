@@ -4,11 +4,11 @@ function getRandomInt(min, max) {
 	return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-function generateCanvas(canvas, data) {
+function generateCanvas(canvas, data, style, reverse) {
 	var w = 330,
 		h = 330;
 
-    $(canvas).addClass("canvas");
+	 style == 1 ? $(canvas).addClass("canvas_square") : $(canvas).addClass("canvas_circle");
 
 	var canvasLocal = d3.select(canvas)
 		.append("svg:svg")
@@ -50,4 +50,12 @@ function generateCanvas(canvas, data) {
 
 				return "translate(" +xText + "," + yText + ") rotate(" + (degrees)+ ")";
 			});
+
+			if(reverse % 2 == 0) {
+				canvasLocal.attr("transform", function() {
+  					return (
+    				"translate(" + w / 2.0 + ", " + h / 1.9 + ") " +
+    				"rotate(180, " + w / 4.0 + ", " + h / 4.0 + ")");
+				});
+			}
 }

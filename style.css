@@ -1,4 +1,13 @@
-.canvas {
+.canvas_circle {
+   border-radius: 50%;
+   border: 1px solid black;
+   width: 335px;
+   height: 335px;
+   float: left;
+   margin: 5px;
+}
+
+.canvas_square {
    border: 1px solid black;
    width: 330px;
    height: 330px;
@@ -9,4 +18,10 @@
 .input {
  float: left;
  margin: 20px;
+}
+
+@media print {
+  .hidden-print {
+    display: none !important;
+  }
 }

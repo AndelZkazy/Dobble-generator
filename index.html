@@ -69,10 +69,24 @@
    				$("body").append('<div class=input> <input type=text id=text' + i + '> </div>');
    			}
 
+
    			$("body").append('<div style="clear:both;"></div>');
-   			$("body").append('<button id="generate" style="margin-left:20px;">Generuj Dobble!</button>');
+            $("body").append('<p><input name="group1" type="radio" id="square" checked/><label for="square">Kwadraty</label></p>');
+            $("body").append('<p><input name="group1" type="radio" id="circle"/><label for="circle">Okręgi</label></p>');
+
+   			$("body").append('<button id="generate" style="margin-left:20px;" class="btn btn-primary">Generuj Dobble!</button>');
 
    			$("#generate").click(function() {
+
+               var style;
+
+               if(document.getElementById('square').checked) {
+                     style = 1;
+               } else {
+                  style = 0;
+               }
+
+               $("p").hide();
    				$(this).hide();
    				$(".input").hide();
 
@@ -81,11 +95,11 @@
    				}
 
    				for(j = 1; j <= 31; j++) {
-   					generateCanvas("#canvas" + j, parseData(data["rows"][j-1]));
+   					generateCanvas("#canvas" + j, parseData(data["rows"][j-1]), style, j);
    				}
 
    				$("body").append('<div style="clear:both;"></div>');
-   				$("body").append('<button id=print style="margin: 20px" >Drukuj!</button>');
+   				$("body").append('<button id=print style="margin: 20px" class="btn btn-primary hidden-print">Drukuj!</button>');
 
    				$("#print").click(function() {
    					window.print();
